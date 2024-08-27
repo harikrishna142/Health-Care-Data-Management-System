@@ -1,0 +1,83 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Friend.master.cs" Inherits="Friend" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title></title>
+   <link href="StyleSheet.css" rel="Stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 194px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+       <div style="background-color: #669999; height: 638px;">
+    <table style="height: 50px" width="100%">
+        <tr>
+            <td align="center" style="font-size: x-large">
+           Attribute Based Encryption For Health Care Data
+            </td>
+        </tr>
+    </table>
+    <table style="height: 20px" width="100%" id="tab">
+        <tr>
+            <td>
+           
+            </td>
+        </tr>
+    </table>
+    <table style="height: 202px; width: 292px">
+        <tr>
+            <td valign="top" >
+                <table style=" width: 174px; height: 177px;">
+                    <tr>
+                        <td>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/friendhome.aspx">Home</asp:HyperLink>
+                        </td>
+                    </tr>
+                    
+                 
+                     <tr>
+                        <td>
+                            <asp:HyperLink ID="HyperLink2" runat="server" 
+                                NavigateUrl="~/frienviewreport.aspx" >View Report</asp:HyperLink>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:HyperLink ID="HyperLink5" runat="server" 
+                                NavigateUrl="~/friendchangepass.aspx">Change Password</asp:HyperLink>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/login.aspx">Log Out</asp:HyperLink>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <table>
+                    <tr>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+            <td valign="top">
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+        
+    </div>
+    </form>
+</body>
+</html>

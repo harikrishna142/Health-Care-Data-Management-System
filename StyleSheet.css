@@ -1,0 +1,16 @@
+﻿body
+{
+    
+    font-family: Cambria;
+    font-size: small;
+    font-weight: bold;
+}
+#div
+{
+    background-color: #99CCFF;
+  min-height:600px;
+}
+#tab
+{
+    background-color: #3366FF;
+}

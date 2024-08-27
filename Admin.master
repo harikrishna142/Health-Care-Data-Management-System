@@ -1,0 +1,136 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+      <link href="StyleSheet.css" rel="Stylesheet" type="text/css" />
+       <link href="cal.css" type="text/css" rel="stylesheet" />
+    <script language="javascript" src="JScript.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 152px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+     <div id="div">
+    <table style="height: 50px; width:100%">
+        <tr>
+            <td align="center" style="font-size: x-large">
+           Attribute Based Encryption For Health Care Data
+            </td>
+        </tr>
+    </table>
+    <table  style="width:100%;" id="tab">
+        <tr>
+            <td>
+           
+            </td>
+        </tr>
+    </table>
+         <table width="100%" style="background-color: #000066">
+            <tr>
+                <td>
+                </td>
+            </tr>
+        </table>
+        <table style="height: 406px; width: 308px" >
+        <tr>
+            <td valign="top" class="auto-style1" >
+                <table style="height: 392px; width: 158px" >
+                    <tr>
+                        <td style="background-color: #CCCCCC">
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/emptyadmin.aspx">Home</asp:HyperLink>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td style="background-color: #CCCCCC">
+                            <asp:HyperLink ID="HyperLink2" runat="server" 
+                                NavigateUrl="~/createpatient.aspx">Create Patient</asp:HyperLink>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #CCCCCC">
+                            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/createdoctor.aspx">Create Doctor</asp:HyperLink>
+                        </td>
+                    </tr>
+                      <tr>
+                        <td style="background-color: #CCCCCC">
+                            <asp:HyperLink ID="HyperLink7" runat="server" 
+                                NavigateUrl="~/createmedical.aspx" >Create Medical Shop</asp:HyperLink>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td style="background-color: #CCCCCC">
+                            <asp:HyperLink ID="HyperLink11" runat="server" 
+                                NavigateUrl="~/createnurse.aspx" >Create Nurse</asp:HyperLink>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td style="background-color: #CCCCCC">
+                            <asp:HyperLink ID="HyperLink12" runat="server" 
+                                NavigateUrl="~/createreceptionalist.aspx" >Create Receptionist</asp:HyperLink>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td style="background-color: #CCCCCC">
+                            <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/createlabassistant.aspx" 
+                                 >Create Lab assistant</asp:HyperLink>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #CCCCCC">
+                            <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~/managepatient.aspx" 
+                                 >Manage Patient</asp:HyperLink>
+                        </td>
+                    </tr>
+                      <tr>
+                        <td style="background-color: #CCCCCC">
+                            <asp:HyperLink ID="HyperLink8" runat="server" 
+                                NavigateUrl="~/managedoctor.aspx" >Manage Doctor</asp:HyperLink>
+                        </td>
+                    </tr>
+                   
+                      <tr>
+                        <td style="background-color: #CCCCCC">
+                            <asp:HyperLink ID="HyperLink9" runat="server" 
+                                NavigateUrl="~/userrights.aspx" >Actor Rights</asp:HyperLink>
+                        </td>
+                    </tr>
+                      <tr>
+                        <td style="background-color: #CCCCCC">
+                            <asp:HyperLink ID="HyperLink10" runat="server" 
+                                NavigateUrl="~/logdetails.aspx" >Log Details</asp:HyperLink></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #CCCCCC">
+                            <asp:HyperLink ID="HyperLink5" runat="server" 
+                                NavigateUrl="~/adminchangepass.aspx">Change Password</asp:HyperLink>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td style="background-color: #CCCCCC">
+                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/login.aspx">Log Out</asp:HyperLink>
+                        </td>
+                    </tr>
+                </table>
+             
+            </td>
+           <td style="vertical-align: top">
+                 <div>
+    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                </asp:ContentPlaceHolder>
+    </div>
+           </td>
+        </tr>
+    </table>
+  </div>
+    </form>
+</body>
+</html>
