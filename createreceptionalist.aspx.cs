@@ -1,0 +1,125 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using UniversalFunctions;
+using System.Web.Configuration;
+//using System.Windows.Forms;
+using System.IO;
+public partial class createreceptionalist : System.Web.UI.Page
+{
+    SqlConnection con;
+    SqlCommand cmd;
+    string query, a; ClassGeneral classGeneral = new ClassGeneral();
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            lblnurseid.Text = string.Empty;
+            Medid();
+            GridView1.DataBind();
+        }
+    }
+    public void data()
+    {
+        string constring;
+        constring = WebConfigurationManager.ConnectionStrings["connect"].ConnectionString;
+        con = new SqlConnection(constring);
+        con.Open();
+    }
+
+    private int randomnumber(int min, int max)
+    {
+        Random random = new Random();
+        return random.Next(min, max);
+    } int aidd, id;
+    public void Medid()
+    {
+        data();
+        query = "select max(id) from recepdet";
+        cmd = new SqlCommand(query, con);
+        SqlDataReader rd = cmd.ExecuteReader();
+        if (rd.Read())
+        {
+
+            if (rd.IsDBNull(0))
+            {
+                aidd = 0;
+            }
+            else
+            {
+                aidd = Convert.ToInt32(rd[0].ToString());
+            }
+        }
+        rd.Close();
+        con.Close();
+        if (aidd == 0)
+        {
+
+            aidd = 1;
+            lblnurseid.Text = "REC" + aidd.ToString();
+        }
+        else
+        {
+            aidd = aidd + 1;
+            lblnurseid.Text = "REC" + aidd.ToString();
+        }
+    }
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+
+        int a = randomnumber(11001, 99879);
+        int b = randomnumber(111, 999);
+        txtusername.Text = txtname.Text.Substring(0, 2) + b.ToString();
+        txtpassword.Text = a.ToString();
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        if (RadioButton1.Checked == true)
+        {
+            a = "male";
+        }
+        else
+        {
+            a = "female";
+        }
+        data();
+        query = "insert into recepdet(recid,recname,age,gender,yrexp,phno,email,uname,pwd,actor)values('" + lblnurseid.Text + "','" + txtname.Text + "','" + txtage.Text + "','" + a.ToString() + "','" + txtyrexp.Text + "','" + txtphone.Text + "','" + txtemail.Text + "','" + txtusername.Text + "','" + txtpassword.Text + "','Receptionist')";
+        cmd = new SqlCommand(query, con);
+        cmd.ExecuteNonQuery();
+        con.Close();
+        classGeneral.ShowMessage("Receptionist Created");
+        Response.Redirect("createreceptionalist.aspx");
+        Medid();
+    }
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        string docid = (GridView1.DataKeys[e.RowIndex].Values[0].ToString());
+        data();
+        query = "delete from recepdet where recid='" + docid + "'";
+        SqlDataSource1.DeleteCommand = query;
+        SqlDataSource1.Delete();
+        GridView1.DataBind();
+    }
+    protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+        TextBox gtxtname = (TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox2");
+        TextBox gtxtage = (TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox3");
+        TextBox gtxtgender = (TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox4");
+        TextBox gtxtyrexp = (TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox5");
+        TextBox gtxtphno = (TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox6");
+        TextBox gtxtemail = (TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox7");
+        TextBox gtxtusername = (TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox8");
+        TextBox gtxtpwd = (TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox9");
+        string docid = (GridView1.DataKeys[e.RowIndex].Values[0].ToString());
+        data();
+        query = "update recepdet set recname='" + gtxtname.Text + "',age='" + gtxtage.Text + "',gender='" + gtxtgender.Text + "',yrexp='" + gtxtyrexp.Text + "',phno='" + gtxtphno.Text + "',email='" + gtxtemail.Text + "',uname='" + gtxtusername.Text + "',pwd='" + gtxtpwd.Text + "' where recid='" + docid + "'";
+        SqlDataSource1.UpdateCommand = query;
+        SqlDataSource1.Update();
+        con.Close();
+        GridView1.DataBind();
+    }
+}
