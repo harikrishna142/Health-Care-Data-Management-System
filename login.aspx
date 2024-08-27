@@ -14,7 +14,7 @@
         <table style="height: 50px" width="100%">
             <tr>
                 <td align="center" style="font-size: x-large">
-                    Attribute Based Encryption For Health Care Data
+                    Hospital data management system
                 </td>
             </tr>
         </table>
